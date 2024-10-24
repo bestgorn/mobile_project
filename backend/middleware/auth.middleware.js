@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 
-// Middleware สำหรับตรวจสอบว่า Token ถูกต้องหรือไม่
+// Middleware สำหรับตรวจสอบว่า Token ถูกต้องหรือ
 exports.verifyToken = (req, res, next) => {
     const token = req.headers['authorization'];
     if (!token) return res.status(403).json({ message: 'No token provided.' });
