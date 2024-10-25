@@ -22,7 +22,7 @@ app.use('/api/rooms', roomRoutes);
 app.use('/api/history', historyRoutes);
 app.use('/api/booking', bookingRoutes);
 
-// เริ่มเซิร์ฟเวอร์
+
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
