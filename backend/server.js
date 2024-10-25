@@ -6,7 +6,7 @@ const authRoutes = require('./routes/auth.routes');
 const bookingRoutes = require('./routes/booking.routes');
 const roomRoutes = require('./routes/room.routes');
 const historyRoutes = require('./routes/history.routes');
-require('dotenv').config(); // โหลดค่าจาก .env
+require('dotenv').config(); 
 
 const app = express();
 const server = http.createServer(app);
