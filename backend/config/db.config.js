@@ -12,7 +12,6 @@ const pool = mysql.createPool({
 // ฟังก์ชันสำหรับตรวจสอบการเชื่อมต่อ
 async function testConnection() {
     try {
-        const connection = await pool.getConnection(); // รับการเชื่อมต่อจาก Pool
         console.log('Connected to the MySQL database.');
     } catch (error) {
         console.error('Error connecting to the database:', error);
@@ -22,5 +21,3 @@ async function testConnection() {
 // เรียกใช้งานฟังก์ชันตรวจสอบการเชื่อมต่อ
 testConnection();
 
-// ส่งออก Pool
-module.exports = pool;
