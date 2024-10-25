@@ -52,12 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
               onPressed: _register,
               child: Text('Register'),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // กลับไปที่หน้า Login
-              },
-              child: Text('Already have an account? Login'),
-            ),
+            
           ],
         ),
       ),

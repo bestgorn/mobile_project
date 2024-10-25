@@ -9,7 +9,7 @@ const initSocket = (server) => {
 
         // รับการตัดการเชื่อมต่อ
         socket.on('disconnect', () => {
-            console.log('A user disconnected');
+            console.log(' user disconnected');
         });
     });
 

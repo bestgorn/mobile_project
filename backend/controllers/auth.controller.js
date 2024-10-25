@@ -4,16 +4,11 @@ const db = require('../config/db.config'); // เชื่อมต่อฐา�
 
 // ฟังก์ชันสำหรับการลงทะเบียนผู้ใช้
 exports.register = async (req, res) => {
-    const { username, password, email, confirmPassword } = req.body;
+    const { username, password, email } = req.body;
 
     // ตรวจสอบว่ามีข้อมูลครบถ้วนหรือไม่
-    if (!username || !password || !email || !confirmPassword) {
+    if (!username || !password || !email) {
         return res.status(400).json({ message: 'All fields are required.' });
-    }
-
-    // ตรวจสอบว่ารหัสผ่านและยืนยันรหัสผ่านตรงกันหรือไม่
-    if (password !== confirmPassword) {
-        return res.status(400).json({ message: 'Passwords do not match.' });
     }
 
     // เข้ารหัสรหัสผ่าน
@@ -73,7 +68,7 @@ exports.login = async (req, res) => {
         const token = jwt.sign(
             { id: user[0].id, username: user[0].username, role: user[0].role }, // เพิ่ม role
             process.env.JWT_SECRET,
-            { expiresIn: '1h' } // กำหนดเวลาหมดอายุของ JWT
+            { expiresIn: '24h' } // กำหนดเวลาหมดอายุของ JWT
         );
 
         res.status(200).json({ message: 'Login successful', token });
@@ -95,7 +90,7 @@ exports.getAllUsers = async (req, res) => {
             id: user.id,
             username: user.username,
             email: user.email,
-            role: user.role // เพิ่มเครื่องหมายคอมม่า
+            role: user.role 
         }));
 
         res.status(200).json(usersObject);
@@ -122,7 +117,7 @@ exports.getUserById = async (req, res) => {
             id: user[0].id,
             username: user[0].username,
             email: user[0].email,
-            role: user[0].role // เพิ่มข้อมูลบทบาท
+            role: user[0].role 
         };
 
         res.status(200).json(userObject);

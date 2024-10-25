@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart'; // นำเข้�
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
+
+  static fromJson(login) {}
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -66,6 +68,12 @@ class _LoginPageState extends State<LoginPage> {
                 Navigator.pushNamed(context, '/register');
               },
               child: Text('Register'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // กลับไปที่หน้า Login
+              },
+              child: Text('Already have an account? register'),
             ),
           ],
         ),

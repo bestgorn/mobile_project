@@ -1,9 +1,9 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+//connect Api with backend
 class AuthService {
   final String baseUrl = 'http://localhost:5000'; 
-
+//------------------------------------------------------------------------------//
   Future<String> login(String email, String password) async {
     final response = await http.post(
       Uri.parse(
@@ -19,11 +19,11 @@ class AuthService {
       throw Exception('Login failed');
     }
   }
-
+//------------------------------------------------------------------------------//
   Future<void> register(String username, String email, String password) async {
     final response = await http.post(
       Uri.parse(
-          '$baseUrl/api/auth'), 
+          '$baseUrl/api/auth/register'), 
       headers: {'Content-Type': 'application/json'},
       body: json
           .encode({'username': username, 'email': email, 'password': password}),
