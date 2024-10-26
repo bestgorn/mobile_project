@@ -25,9 +25,9 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterPage(),
         '/room-list': (context) => RoomListPage(),
         '/booking-form': (context) {
-          final ApiService apiService = ApiService();
-          if (apiService is Room) {
-            return BookingFormPage(room: ApiService);
+          final Room? room = ModalRoute.of(context)?.settings.arguments as Room?;
+          if (room != null) {
+            return BookingFormPage(room: room);
           } else {
             return Scaffold(
               body: Center(child: Text('Error: No room information provided')),
